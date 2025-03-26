@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vazochki - Минималистичная керамика</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Quattrocento:wght@400;700&display=swap" rel="stylesheet">
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/vendor.css">
+  <link rel="stylesheet" href="css/style.css">
+  
+  <style>
+    .site-header {
+      background-color: transparent;
+      position: absolute;
+      width: 100%;
+      z-index: 100;
+      padding: 20px 0;
+      transition: all 0.3s ease;
+    }
+    
+    .navbar-custom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    }
+    
+    .nav-links-left, .nav-links-right {
+      display: flex;
+      gap: 30px;
+    }
+    
+    .navbar-brand-center {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      color: white;
+      font-size: 1.8rem;
+      font-weight: 700;
+      font-family: 'Quattrocento', serif;
+      text-decoration: none;
+      letter-spacing: 1px;
+    }
+    
+    .nav-link {
+      color: white;
+      text-decoration: none;
+      font-family: 'Lora', serif;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      position: relative;
+      padding: 5px 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .nav-link:hover {
+      opacity: 0.8;
+    }
+    
+    .nav-link:after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 1px;
+      bottom: 0;
+      left: 0;
+      background-color: white;
+      transition: width 0.3s ease;
+    }
+    
+    .nav-link:hover:after {
+      width: 100%;
+    }
+    
+    .nav-icon {
+      width: 20px;
+      height: 20px;
+    }
+    
+    .hero-banner {
+      min-height: 100vh;
+      background-size: cover;
+      background-position: center;
+    }
+    
+    .hero-content {
+      text-align: center;
+      padding-top: 120px;
+    }
+    
+    .hero-title {
+      font-size: 1.8rem;
+      font-weight: 400;
+      color: white;
+      margin-bottom: 30px;
+    }
+    
+    .product-card img {
+      height: 300px;
+      object-fit: cover;
+    }
+    
+    .collection-item img {
+      height: 500px;
+      object-fit: cover;
+    }
+    
+    .collection-overlay {
+      background: rgba(0,0,0,0.4);
+    }
+
+    @media (max-width: 992px) {
+      .navbar-brand-center {
+        font-size: 1.5rem;
+      }
+      
+      .nav-links-left,
+      .nav-links-right {
+        gap: 15px;
+      }
+      
+      .nav-link {
+        font-size: 1rem;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .nav-links-left {
+        margin-left: 15px;
+      }
+      
+      .nav-links-right {
+        margin-right: 15px;
+      }
+      
+      .hero-title {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header fixed-top">
+    <div class="container-fluid">
+      <nav class="navbar-custom">
+        <div class="nav-links-left">
+          <a href="index.html" class="nav-link">Главная</a>
+          <a href="about.html" class="nav-link">О нас</a>
+          <a href="shop.html" class="nav-link">Магазин</a>
+        </div>
+        
+        <a href="index.html" class="navbar-brand-center">Vazochki</a>
+        
+        <div class="nav-links-right">
+          <a href="login.html" class="nav-link">
+            <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+            </svg>
+            Войти
+          </a>
+          <a href="cart.html" class="nav-link">
+            <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
+            </svg>
+            <span class="cart-count">0</span>
+          </a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero-banner" style="background-image: url(images/banner-image1.jpg);">
+    <div class="container h-100">
+      <div class="hero-content">
+        <h2 class="hero-title">Минималистичная керамика ручной работы</h2>
+        <a href="shop.html" class="btn btn-light btn-lg px-5 py-3">В МАГАЗИН</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="trending-products py-5 bg-light">
+    <div class="container py-5">
+      <h2 class="text-center mb-5 display-4">Популярные товары</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="product-card bg-white p-4 text-center">
+            <img src="images/product-item6.jpg" alt="Керамическая ваза для цветов" class="img-fluid mb-4">
+            <h3 class="h4">Ваза для цветов</h3>
+            <p class="text-muted">14 000 ₽</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="product-card bg-white p-4 text-center">
+            <img src="images/product-item5.jpg" alt="Молочная керамическая ваза" class="img-fluid mb-4">
+            <h3 class="h4">Молочная ваза</h3>
+            <p class="text-muted">14 000 ₽</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="product-card bg-white p-4 text-center">
+            <img src="images/product-item2.jpg" alt="Яблочный цветок из керамики" class="img-fluid mb-4">
+            <h3 class="h4">Яблочный цветок</h3>
+            <p class="text-muted">14 000 ₽</p>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-5">
+        <a href="shop.html" class="btn btn-dark px-5 py-3">ВЕСЬ АССОРТИМЕНТ</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="collections">
+    <div class="container-fluid">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <div class="collection-item position-relative">
+            <img src="images/collection-item1.jpg" alt="Мастер-классы по гончарному делу" class="img-fluid w-100">
+            <div class="collection-overlay position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center align-items-center text-white">
+              <h3 class="display-6 mb-4">Мастер-классы</h3>
+              <a href="contact.html" class="btn btn-outline-light px-4 py-2">ЗАПИСАТЬСЯ</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="collection-item position-relative">
+            <img src="images/collection-item2.jpg" alt="Глиняные изделия" class="img-fluid w-100">
+            <div class="collection-overlay position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center align-items-center text-white">
+              <h3 class="display-6 mb-4">Глиняные изделия</h3>
+              <a href="shop.html" class="btn btn-outline-light px-4 py-2">КУПИТЬ</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="collection-item position-relative">
+            <img src="images/collection-item3.jpg" alt="Керамические изделия" class="img-fluid w-100">
+            <div class="collection-overlay position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center align-items-center text-white">
+              <h3 class="display-6 mb-4">Керамические изделия</h3>
+              <a href="shop.html" class="btn btn-outline-light px-4 py-2">КУПИТЬ</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-dark text-white py-5">
+    <div class="container py-5">
+      <div class="row g-4">
+        <div class="col-md-4">
+          <h5 class="mb-4">О Vazochki</h5>
+          <p class="mb-4">Создаем уникальную керамику ручной работы с 2020 года.</p>
+          <form class="mt-3">
+            <div class="input-group">
+              <input type="email" class="form-control" placeholder="Ваш Email">
+              <button class="btn btn-primary" type="submit">Подписаться</button>
+            </div>
+          </form>
+        </div>
+        <div class="col-md-2">
+          <h5 class="mb-4">Навигация</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2"><a href="index.html" class="text-white text-decoration-none">Главная</a></li>
+            <li class="mb-2"><a href="about.html" class="text-white text-decoration-none">О нас</a></li>
+            <li class="mb-2"><a href="shop.html" class="text-white text-decoration-none">Магазин</a></li>
+            <li class="mb-2"><a href="blog.html" class="text-white text-decoration-none">Блог</a></li>
+          </ul>
+        </div>
+        <div class="col-md-2">
+          <h5 class="mb-4">Помощь</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2"><a href="faqs.html" class="text-white text-decoration-none">FAQ</a></li>
+            <li class="mb-2"><a href="#" class="text-white text-decoration-none">Доставка</a></li>
+            <li class="mb-2"><a href="#" class="text-white text-decoration-none">Оплата</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <h5 class="mb-4">Контакты</h5>
+          <p class="mb-3">ул. Гончарная, 123<br>Москва, Россия</p>
+          <p class="mb-1">Email: info@vazochki.ru</p>
+          <p>Телефон: +7 (123) 456-78-90</p>
+        </div>
+      </div>
+      <hr class="my-5">
+      <div class="text-center">
+        <p>&copy; 2023 Vazochki. Все права защищены.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 600,
+      easing: 'ease-in-out',
+      once: true
+    });
+    
+    document.addEventListener('DOMContentLoaded', function() {
+      const cartCount = localStorage.getItem('cartCount') || 0;
+      document.querySelector('.cart-count').textContent = cartCount;
+    });
+  </script>
+</body>
+</html>
