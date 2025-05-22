@@ -150,47 +150,34 @@
   </style>
 </head>
 <body>
-  <header>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-transparent fixed-top">
-      <div class="container-fluid">
+  <header class="site-header fixed-top">
+    <div class="container-fluid">
+      <nav class="navbar-custom">
+        <div class="nav-links-left">
+          <a href="index.html" class="nav-link">Главная</a>
+          <a href="about.html" class="nav-link">О нас</a>
+          <a href="shop.html" class="nav-link">Магазин</a>
+        </div>
         
-        <!-- Левая часть навигации -->
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex flex-row gap-3">
-          <li class="nav-item">
-            <a class="nav-link" href="index.html">Главная</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="about.html">О нас</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="shop.html">Магазин</a>
-          </li>
-        </ul>
-  
-        <!-- Центр — логотип -->
-        <a class="navbar-brand mx-auto fw-bold fs-4" href="index.html">Vazochki</a>
-  
-        <!-- Правая часть — Войти и Корзина -->
-        <ul class="navbar-nav d-flex flex-row gap-3">
-          <li class="nav-item">
-            <a class="nav-link" href="login.html">
-              <i class="bi bi-person"></i> Войти
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link position-relative" href="cart.html">
-              <i class="bi bi-cart"></i>
-              <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger cart-count">
-                0
-              </span>
-            </a>
-          </li>
-        </ul>
-  
-      </div>
-    </nav>
+        <a href="index.html" class="navbar-brand-center">Vazochki</a>
+        
+        <div class="nav-links-right">
+          <a href="login.html" class="nav-link">
+            <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+            </svg>
+            Войти
+          </a>
+          <a href="cart.html" class="nav-link">
+            <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
+            </svg>
+            <span class="cart-count">0</span>
+          </a>
+        </div>
+      </nav>
+    </div>
   </header>
-  
 
   <section class="hero-banner" style="background-image: url(images/banner-image1.jpg);">
     <div class="container h-100">
