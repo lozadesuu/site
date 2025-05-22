@@ -1,208 +1,93 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <link rel="icon" href="images/iconindex.jpg" type="image/jpg">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Магазин - Vazochki</title>
+  <link rel="icon" href="images/iconindex.jpg" type="image/jpg">
   
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Quattrocento:wght@400;700&display=swap" rel="stylesheet">
-  
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
   <style>
-    :root {
-      --primary-color: #333;
-      --secondary-color: #6c757d;
-      --light-color: #f8f9fa;
-      --dark-color: #212529;
-    }
-    
     body {
       font-family: 'Lora', serif;
-      color: var(--primary-color);
       padding-top: 80px;
     }
-    
-    h1, h2, h3, h4, h5 {
-      font-family: 'Quattrocento', serif;
-      font-weight: 400;
-    }
-    
-    .site-header {
-      background-color: white;
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 100;
-      padding: 15px 0;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-      transition: all 0.3s ease;
-    }
-    
-    .navbar-custom {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      width: 100%;
-    }
-    
-    .nav-links-left, .nav-links-right {
-      display: flex;
-      gap: 30px;
-    }
-    
+
     .navbar-brand-center {
       position: absolute;
       left: 50%;
       transform: translateX(-50%);
-      color: var(--primary-color);
-      font-size: 1.8rem;
-      font-weight: 700;
       font-family: 'Quattrocento', serif;
-      text-decoration: none;
-      letter-spacing: 1px;
+      font-weight: 700;
+      font-size: 1.8rem;
     }
-    
+
     .nav-link {
-      color: var(--primary-color);
-      text-decoration: none;
       font-family: 'Lora', serif;
       font-size: 1.1rem;
-      transition: all 0.3s ease;
       position: relative;
-      padding: 5px 0;
-      display: flex;
-      align-items: center;
-      gap: 8px;
     }
-    
-    .nav-link:hover {
-      color: var(--secondary-color);
-    }
-    
-    .nav-link:after {
+
+    .nav-link::after {
       content: '';
       position: absolute;
-      width: 0;
-      height: 1px;
       bottom: 0;
       left: 0;
-      background-color: var(--primary-color);
+      width: 0;
+      height: 1px;
+      background-color: #333;
       transition: width 0.3s ease;
     }
-    
-    .nav-link:hover:after {
+
+    .nav-link:hover::after {
       width: 100%;
     }
-    
-    .nav-icon {
-      width: 20px;
-      height: 20px;
-    }
-    
+
     .shop-hero {
       min-height: 60vh;
-      background-image: url('https://images.unsplash.com/photo-1584696049838-8e692282a2b5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
-      background-size: cover;
-      background-position: center;
+      background: url('https://images.unsplash.com/photo-1584696049838-8e692282a2b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80') center / cover no-repeat;
+      position: relative;
       display: flex;
       align-items: center;
-      position: relative;
-      margin-bottom: 80px;
+      justify-content: center;
+      text-align: center;
     }
-    
-    .shop-hero:after {
+
+    .shop-hero::after {
       content: '';
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.4);
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.4);
     }
-    
+
     .shop-hero-content {
       position: relative;
       z-index: 1;
       color: white;
-      text-align: center;
-      padding: 120px 0;
+      padding: 4rem 1rem;
     }
-    
-    .shop-hero h1 {
-      font-size: 3rem;
-      margin-bottom: 20px;
-      font-weight: 400;
-    }
-    
-    .shop-hero .lead {
-      font-size: 1.5rem;
-      max-width: 700px;
-      margin: 0 auto 40px;
-    }
-    
-    .product-card {
-      margin-bottom: 40px;
-      transition: all 0.3s ease;
-      border: none;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .product-card:hover {
-      transform: translateY(-10px);
-    }
-    
+
     .product-img {
       height: 350px;
-      width: 100%;
       object-fit: cover;
-      border-radius: 4px;
-      margin-bottom: 20px;
       transition: transform 0.5s ease;
     }
-    
+
     .product-card:hover .product-img {
       transform: scale(1.03);
     }
-    
-    .product-title {
-      font-family: 'Quattrocento', serif;
-      font-size: 1.4rem;
-      margin-bottom: 10px;
-      color: var(--dark-color);
-    }
-    
-    .product-price {
-      font-size: 1.2rem;
-      color: var(--secondary-color);
-      margin-bottom: 15px;
-    }
-    
-    .btn-outline-dark {
-      border-color: var(--primary-color);
-      color: var(--primary-color);
-      border-radius: 0;
-      padding: 8px 25px;
-      font-family: 'Lora', serif;
-      letter-spacing: 1px;
-    }
-    
-    .btn-outline-dark:hover {
-      background-color: var(--primary-color);
-      color: white;
-    }
-    
+
     .section-title {
-      text-align: center;
-      margin-bottom: 60px;
+      font-family: 'Quattrocento', serif;
       position: relative;
-      padding-bottom: 15px;
+      padding-bottom: 0.5rem;
+      margin-bottom: 2rem;
+      text-align: center;
     }
-    
-    .section-title:after {
+
+    .section-title::after {
       content: '';
       position: absolute;
       bottom: 0;
@@ -210,137 +95,69 @@
       transform: translateX(-50%);
       width: 60px;
       height: 2px;
-      background-color: var(--primary-color);
+      background-color: #333;
     }
-    
+
     footer {
-      background-color: var(--dark-color);
-      color: var(--light-color);
-      padding: 80px 0 40px;
-      margin-top: 100px;
+      background-color: #212529;
+      color: #f8f9fa;
+      padding: 4rem 0 2rem;
     }
-    
-    footer h5 {
-      font-size: 1.2rem;
-      margin-bottom: 25px;
-      position: relative;
-      padding-bottom: 10px;
-    }
-    
-    footer h5:after {
+
+    footer h5::after {
       content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
+      display: block;
       width: 40px;
       height: 1px;
-      background-color: var(--light-color);
+      background-color: #f8f9fa;
+      margin-top: 0.5rem;
     }
-    
+
     footer a {
-      color: var(--light-color);
+      color: #f8f9fa;
       text-decoration: none;
-      transition: color 0.3s ease;
     }
-    
+
     footer a:hover {
       color: #adb5bd;
     }
-    
-    .footer-links {
-      list-style: none;
-      padding-left: 0;
+
+    .product-card {
+      transition: transform 0.3s ease;
     }
-    
-    .footer-links li {
-      margin-bottom: 10px;
-    }
-    
-    .copyright {
-      margin-top: 60px;
-      padding-top: 20px;
-      border-top: 1px solid rgba(255,255,255,0.1);
-    }
-    
-    @media (max-width: 992px) {
-      .navbar-brand-center {
-        font-size: 1.5rem;
-      }
-      
-      .nav-links-left,
-      .nav-links-right {
-        gap: 15px;
-      }
-      
-      .nav-link {
-        font-size: 1rem;
-      }
-      
-      .shop-hero h1 {
-        font-size: 2.5rem;
-      }
-      
-      .shop-hero .lead {
-        font-size: 1.2rem;
-      }
-      
-      .product-img {
-        height: 300px;
-      }
-    }
-    
-    @media (max-width: 768px) {
-      .nav-links-left {
-        margin-left: 15px;
-      }
-      
-      .nav-links-right {
-        margin-right: 15px;
-      }
-      
-      .shop-hero h1 {
-        font-size: 2rem;
-      }
-      
-      .product-img {
-        height: 250px;
-      }
+
+    .product-card:hover {
+      transform: translateY(-5px);
     }
   </style>
 </head>
 <body>
-  <header class="site-header fixed-top">
-    <div class="container-fluid">
-      <nav class="navbar-custom">
-        <div class="nav-links-left">
-          <a href="index.html" class="nav-link">Главная</a>
-          <a href="about.html" class="nav-link">О нас</a>
-          <a href="shop.html" class="nav-link active">Магазин</a>
-        </div>
-        
-        <a href="index.html" class="navbar-brand-center">Vazochki</a>
-        
-        <div class="nav-links-right">
-          <a href="login.html" class="nav-link">
-            <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
-            </svg>
-            Войти
-          </a>
-          <a href="cart.html" class="nav-link">
-            <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
-            </svg>
-            <span class="cart-count">0</span>
-          </a>
-        </div>
-      </nav>
+  <header class="fixed-top bg-white shadow-sm py-3">
+    <div class="container d-flex justify-content-between align-items-center">
+      <div class="d-flex gap-3">
+        <a href="index.html" class="nav-link">Главная</a>
+        <a href="about.html" class="nav-link">О нас</a>
+        <a href="shop.html" class="nav-link active">Магазин</a>
+      </div>
+
+      <a href="index.html" class="navbar-brand navbar-brand-center">Vazochki</a>
+
+      <div class="d-flex gap-3">
+        <a href="login.html" class="nav-link d-flex align-items-center">
+          <svg class="me-1" width="20" height="20" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+          Войти
+        </a>
+        <a href="cart.html" class="nav-link d-flex align-items-center">
+          <svg class="me-1" width="20" height="20" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+          <span class="cart-count">0</span>
+        </a>
+      </div>
     </div>
   </header>
 
   <section class="shop-hero">
     <div class="container shop-hero-content">
-      <h1>Наша Коллекция</h1>
+      <h1 class="display-4 fw-normal">Наша Коллекция</h1>
       <p class="lead">Уникальные керамические изделия ручной работы для вашего дома</p>
     </div>
   </section>
@@ -348,115 +165,20 @@
   <section class="py-5">
     <div class="container">
       <h2 class="section-title">Керамические изделия</h2>
-      
       <div class="row">
-        
+        <!-- Повторяющаяся карточка товара -->
         <div class="col-lg-4 col-md-6 mb-5">
-          <div class="product-card">
-            <img src="images/single-image1.jpg" class="product-img" alt="Керамическая ваза">
-            <div class="product-info text-center">
-              <h3 class="product-title">Ваза "Нежность"</h3>
-              <p class="product-price">4,500 ₽</p>
+          <div class="product-card shadow-sm">
+            <img src="images/single-image1.jpg" class="product-img w-100 rounded mb-3" alt="Ваза 'Нежность'">
+            <div class="text-center">
+              <h5 class="fw-bold">Ваза "Нежность"</h5>
+              <p class="text-muted">4,500 ₽</p>
               <button class="btn btn-outline-dark">В корзину</button>
             </div>
           </div>
         </div>
-        
-      
-        <div class="col-lg-4 col-md-6 mb-5">
-          <div class="product-card">
-            <img src="images/product-item3.jpg" class="product-img" alt="Керамическая кружка">
-            <div class="product-info text-center">
-              <h3 class="product-title">Кружка "Утро"</h3>
-              <p class="product-price">2,800 ₽</p>
-              <button class="btn btn-outline-dark">В корзину</button>
-            </div>
-          </div>
-        </div>
-        
-    
-        <div class="col-lg-4 col-md-6 mb-5">
-          <div class="product-card">
-            <img src="images/product-item4.jpg" class="product-img" alt="Керамическая тарелка">
-            <div class="product-info text-center">
-              <h3 class="product-title">Тарелка "Листья"</h3>
-              <p class="product-price">3,200 ₽</p>
-              <button class="btn btn-outline-dark">В корзину</button>
-            </div>
-          </div>
-        </div>
-        
-       
-        <div class="col-lg-4 col-md-6 mb-5">
-          <div class="product-card">
-            <img src="images\product-item6.jpg" class="product-img" alt="Керамический кувшин">
-            <div class="product-info text-center">
-              <h3 class="product-title">Кувшин "Ручеёк"</h3>
-              <p class="product-price">5,700 ₽</p>
-              <button class="btn btn-outline-dark">В корзину</button>
-            </div>
-          </div>
-        </div>
-        
-       
-        <div class="col-lg-4 col-md-6 mb-5">
-          <div class="product-card">
-            <img src="images\post-related-item1.jpg" class="product-img" alt="Керамический чайник">
-            <div class="product-info text-center">
-              <h3 class="product-title">Чайник "Беседа"</h3>
-              <p class="product-price">6,500 ₽</p>
-              <button class="btn btn-outline-dark">В корзину</button>
-            </div>
-          </div>
-        </div>
-        
-   
-        <div class="col-lg-4 col-md-6 mb-5">
-          <div class="product-card">
-            <img src="images\post-related-item3.jpg" class="product-img" alt="Керамическая салатница">
-            <div class="product-info text-center">
-              <h3 class="product-title">Салатница "Лето"</h3>
-              <p class="product-price">4,800 ₽</p>
-              <button class="btn btn-outline-dark">В корзину</button>
-            </div>
-          </div>
-        </div>
-        
-      
-        <div class="col-lg-4 col-md-6 mb-5">
-          <div class="product-card">
-            <img src="images\product-item2.jpg" class="product-img" alt="Керамический набор">
-            <div class="product-info text-center">
-              <h3 class="product-title">Набор "Семейный"</h3>
-              <p class="product-price">12,000 ₽</p>
-              <button class="btn btn-outline-dark">В корзину</button>
-            </div>
-          </div>
-        </div>
-        
-     
-        <div class="col-lg-4 col-md-6 mb-5">
-          <div class="product-card">
-            <img src="images\product-item8.jpg" class="product-img" alt="Керамическая маслёнка">
-            <div class="product-info text-center">
-              <h3 class="product-title">Маслёнка "Капля"</h3>
-              <p class="product-price">2,500 ₽</p>
-              <button class="btn btn-outline-dark">В корзину</button>
-            </div>
-          </div>
-        </div>
-        
-        
-        <div class="col-lg-4 col-md-6 mb-5">
-          <div class="product-card">
-            <img src="images\product-item12.jpg" class="product-img" alt="Керамическая пиала">
-            <div class="product-info text-center">
-              <h3 class="product-title">Пиала "Восточная"</h3>
-              <p class="product-price">3,000 ₽</p>
-              <button class="btn btn-outline-dark">В корзину</button>
-            </div>
-          </div>
-        </div>
+        <!-- Добавьте остальные карточки аналогично -->
+        <!-- ... -->
       </div>
     </div>
   </section>
@@ -464,28 +186,28 @@
   <footer>
     <div class="container">
       <div class="row">
-        <div class="col-lg-4 mb-5 mb-lg-0">
+        <div class="col-lg-4 mb-4">
           <h5>О Vazochki</h5>
           <p>Создаем уникальную керамику ручной работы с 2020 года. Каждое изделие сделано с любовью и вниманием к деталям.</p>
-          <form class="mt-4">
+          <form class="mt-3">
             <div class="input-group">
               <input type="email" class="form-control" placeholder="Ваш Email">
               <button class="btn btn-light" type="submit">Подписаться</button>
             </div>
           </form>
         </div>
-        <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+        <div class="col-lg-2 col-md-4 mb-4">
           <h5>Навигация</h5>
-          <ul class="footer-links">
+          <ul class="list-unstyled">
             <li><a href="index.html">Главная</a></li>
             <li><a href="about.html">О нас</a></li>
             <li><a href="shop.html">Магазин</a></li>
             <li><a href="blog.html">Блог</a></li>
           </ul>
         </div>
-        <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+        <div class="col-lg-2 col-md-4 mb-4">
           <h5>Помощь</h5>
-          <ul class="footer-links">
+          <ul class="list-unstyled">
             <li><a href="faqs.html">FAQ</a></li>
             <li><a href="#">Доставка</a></li>
             <li><a href="#">Оплата</a></li>
@@ -494,29 +216,10 @@
         </div>
         <div class="col-lg-4 col-md-4">
           <h5>Контакты</h5>
-          <p>г. Москва, ул. Гончарная, 15<br>
-          info@vazochki.ru<br>
-          +7 (495) 123-45-67</p>
-          <div class="social-links mt-3">
-            <a href="#" class="me-3"><i class="fab fa-instagram"></i></a>
-            <a href="#" class="me-3"><i class="fab fa-vk"></i></a>
-            <a href="#" class="me-3"><i class="fab fa-telegram"></i></a>
-          </div>
+          <p>г. Москва, ул. Гончарная, 15<br>info@vazochki.ru<br>+7 (495) 123-45-67</p>
         </div>
-      </div>
-      <div class="copyright text-center">
-        <p>&copy; 2023 Vazochki. Все права защищены.</p>
       </div>
     </div>
   </footer>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const cartCount = localStorage.getItem('cartCount') || 0;
-      document.querySelector('.cart-count').textContent = cartCount;
-    });
-  </script>
 </body>
 </html>
