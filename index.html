@@ -12,8 +12,6 @@
   <style>
     body {
       font-family: 'Lora', serif;
-      margin: 0;
-      padding-top: 80px;
     }
 
     .navbar-custom {
@@ -21,33 +19,27 @@
       justify-content: space-between;
       align-items: center;
       padding: 1rem 2rem;
-      background-color: rgba(0, 0, 0, 0.6);
-    }
-
-    .nav-link {
-      color: white;
-      margin: 0 1rem;
-      text-decoration: none;
-      font-weight: 500;
-    }
-
-    .nav-link:hover,
-    .nav-link.active {
-      text-decoration: underline;
-    }
-
-    .navbar-brand-center {
-      font-family: 'Quattrocento', serif;
-      font-size: 1.75rem;
-      font-weight: bold;
-      color: white;
-      text-decoration: none;
     }
 
     .nav-links-left,
     .nav-links-right {
       display: flex;
-      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .nav-link {
+      text-decoration: none;
+      color: #000;
+      font-weight: 500;
+    }
+
+    .navbar-brand-center {
+      font-family: 'Quattrocento', serif;
+      font-size: 1.8rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+      text-align: center;
+      color: #000;
     }
 
     .nav-icon {
@@ -57,45 +49,33 @@
     }
 
     .cart-count {
-      background-color: red;
-      color: white;
+      background: red;
       border-radius: 50%;
       padding: 2px 6px;
-      font-size: 0.75rem;
+      font-size: 0.8rem;
+      color: white;
       margin-left: 4px;
     }
 
     .hero {
-      background: url('images/banner-image1.jpg') center/cover no-repeat;
       height: 100vh;
+      background: url('images/banner-image1.jpg') center/cover no-repeat;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
       color: white;
-      position: relative;
-    }
-
-    .hero-content {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
       text-align: center;
+      padding-top: 80px;
     }
 
-    .hero-content h1 {
-      font-family: 'Quattrocento', serif;
-      font-size: 4rem;
-      font-weight: bold;
+    .hero h1 {
+      font-size: 2rem;
       margin-bottom: 1rem;
     }
 
-    .hero-content h2 {
-      font-size: 1.5rem;
-      font-weight: normal;
-      margin-bottom: 2rem;
-    }
-
-    .btn-shop {
-      padding: 0.75rem 2rem;
-      font-weight: bold;
+    .collection-overlay {
+      background-color: rgba(0, 0, 0, 0.4);
     }
 
     .collection-item img {
@@ -103,26 +83,20 @@
       object-fit: cover;
       width: 100%;
     }
-
-    .collection-overlay {
-      background-color: rgba(0, 0, 0, 0.4);
-    }
   </style>
 </head>
 <body>
 
-  <!-- Вставленный HEADER -->
-  <header class="site-header fixed-top">
+  <!-- Хедер -->
+  <header class="site-header fixed-top bg-white">
     <div class="container-fluid">
       <nav class="navbar-custom">
         <div class="nav-links-left">
           <a href="index.html" class="nav-link">Главная</a>
-          <a href="about.html" class="nav-link active">О нас</a>
-          <a href="shop.html" class="nav-link">Магазин</a>
+          <a href="about.html" class="nav-link">О нас</a>
+          <a href="shop.html" class="nav-link active">Магазин</a>
         </div>
-        
         <a href="index.html" class="navbar-brand-center">Vazochki</a>
-        
         <div class="nav-links-right">
           <a href="login.html" class="nav-link">
             <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
@@ -143,11 +117,8 @@
 
   <!-- Герой -->
   <section class="hero">
-    <div class="hero-content">
-      <h1>Vazochki</h1>
-      <h2>Минималистичная керамика ручной работы</h2>
-      <a href="shop.html" class="btn btn-light btn-lg btn-shop">В МАГАЗИН</a>
-    </div>
+    <h1>Минималистичная керамика ручной работы</h1>
+    <a href="shop.html" class="btn btn-light btn-lg mt-3">В МАГАЗИН</a>
   </section>
 
   <!-- Популярные товары -->
@@ -251,8 +222,7 @@
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const cartCount = localStorage.getItem('cartCount') || 0;
-      const badge = document.querySelector('.cart-count');
-      if (badge) badge.textContent = cartCount;
+      document.querySelector('.cart-count').textContent = cartCount;
     });
   </script>
 
