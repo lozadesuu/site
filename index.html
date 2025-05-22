@@ -13,26 +13,56 @@
     body {
       font-family: 'Lora', serif;
       margin: 0;
+      padding-top: 80px;
     }
 
-    .nav-custom {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      padding: 1.5rem 2rem;
+    .navbar-custom {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      z-index: 10;
+      padding: 1rem 2rem;
+      background-color: rgba(0, 0, 0, 0.6);
     }
 
-    .nav-custom .nav-left a,
-    .nav-custom .nav-right a {
+    .nav-link {
       color: white;
-      margin-right: 1.5rem;
+      margin: 0 1rem;
       text-decoration: none;
-      font-size: 1rem;
+      font-weight: 500;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      text-decoration: underline;
+    }
+
+    .navbar-brand-center {
+      font-family: 'Quattrocento', serif;
+      font-size: 1.75rem;
+      font-weight: bold;
+      color: white;
+      text-decoration: none;
+    }
+
+    .nav-links-left,
+    .nav-links-right {
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-icon {
+      width: 20px;
+      height: 20px;
+      margin-right: 5px;
+    }
+
+    .cart-count {
+      background-color: red;
+      color: white;
+      border-radius: 50%;
+      padding: 2px 6px;
+      font-size: 0.75rem;
+      margin-left: 4px;
     }
 
     .hero {
@@ -68,17 +98,6 @@
       font-weight: bold;
     }
 
-    .cart-count {
-      font-size: 0.8rem;
-      background: red;
-      border-radius: 50%;
-      padding: 2px 6px;
-      color: white;
-      position: relative;
-      top: -5px;
-      left: -5px;
-    }
-
     .collection-item img {
       height: 500px;
       object-fit: cover;
@@ -92,20 +111,35 @@
 </head>
 <body>
 
-  <!-- Навигация -->
-  <div class="nav-custom">
-    <div class="nav-left">
-      <a href="index.html">Главная</a>
-      <a href="about.html">О нас</a>
-      <a href="shop.html">Магазин</a>
-      <a href="login.html">Войти</a>
+  <!-- Вставленный HEADER -->
+  <header class="site-header fixed-top">
+    <div class="container-fluid">
+      <nav class="navbar-custom">
+        <div class="nav-links-left">
+          <a href="index.html" class="nav-link">Главная</a>
+          <a href="about.html" class="nav-link active">О нас</a>
+          <a href="shop.html" class="nav-link">Магазин</a>
+        </div>
+        
+        <a href="index.html" class="navbar-brand-center">Vazochki</a>
+        
+        <div class="nav-links-right">
+          <a href="login.html" class="nav-link">
+            <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+            </svg>
+            Войти
+          </a>
+          <a href="cart.html" class="nav-link">
+            <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
+            </svg>
+            <span class="cart-count">0</span>
+          </a>
+        </div>
+      </nav>
     </div>
-    <div class="nav-right">
-      <a href="cart.html">
-        🛒 <span class="cart-count">0</span>
-      </a>
-    </div>
-  </div>
+  </header>
 
   <!-- Герой -->
   <section class="hero">
@@ -221,5 +255,6 @@
       if (badge) badge.textContent = cartCount;
     });
   </script>
+
 </body>
 </html>
