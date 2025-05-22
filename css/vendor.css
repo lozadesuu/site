@@ -1,4 +1,4 @@
-[data-aos] {
+/* [data-aos] {
   transition: all 400ms ease;
 }
 
@@ -34,4 +34,4 @@
 [data-aos^="zoom"].aos-animate {
   opacity: 1;
   transform: scale(1);
-}
+} */
