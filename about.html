@@ -217,7 +217,7 @@
   </style>
 </head>
 <body>
-  <!-- Header -->
+ 
   <header class="site-header">
     <div class="container-fluid">
       <nav class="navbar-custom">
@@ -230,12 +230,17 @@
         <a href="index.html" class="navbar-brand-center">Vazochki</a>
         
         <div class="nav-links-right">
-          <a href="login.html" class="nav-link">
+          <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#loginModal">
             <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
             </svg>
             Войти
           </a>
+        
+          <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#registerModal">
+            Регистрация
+          </a>
+        
           <a href="cart.html" class="nav-link">
             <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
@@ -247,7 +252,83 @@
     </div>
   </header>
 
-  <!-- Hero Section -->
+  
+  <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="loginModalLabel">Вход в аккаунт</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="loginForm">
+            <div class="mb-3">
+              <label for="loginEmail" class="form-label">Email</label>
+              <input type="email" class="form-control" id="loginEmail" required>
+            </div>
+            <div class="mb-3">
+              <label for="loginPassword" class="form-label">Пароль</label>
+              <input type="password" class="form-control" id="loginPassword" required>
+            </div>
+            <div class="mb-3 form-check">
+              <input type="checkbox" class="form-check-input" id="rememberMe">
+              <label class="form-check-label" for="rememberMe">
+                Запомнить меня
+              </label>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>
+          <button type="submit" form="loginForm" class="btn btn-primary">Войти</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+ 
+  <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="registerModalLabel">Регистрация</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="registerForm">
+            <div class="mb-3">
+              <label for="registerName" class="form-label">Имя</label>
+              <input type="text" class="form-control" id="registerName" required>
+            </div>
+            <div class="mb-3">
+              <label for="registerEmail" class="form-label">Email</label>
+              <input type="email" class="form-control" id="registerEmail" required>
+            </div>
+            <div class="mb-3">
+              <label for="registerPassword" class="form-label">Пароль</label>
+              <input type="password" class="form-control" id="registerPassword" required>
+            </div>
+            <div class="mb-3">
+              <label for="confirmPassword" class="form-label">Подтвердите пароль</label>
+              <input type="password" class="form-control" id="confirmPassword" required>
+            </div>
+            <div class="mb-3 form-check">
+              <input type="checkbox" class="form-check-input" id="agreeTerms" required>
+              <label class="form-check-label" for="agreeTerms">
+                Согласен с условиями использования
+              </label>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>
+          <button type="submit" form="registerForm" class="btn btn-primary">Зарегистрироваться</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+ 
   <section class="about-hero">
     <div class="container about-content">
       <h1>Наша история</h1>
@@ -255,7 +336,7 @@
     </div>
   </section>
 
-  <!-- Story Section -->
+
   <section class="story-section py-5 bg-light">
     <div class="container">
       <div class="row align-items-center">
@@ -272,7 +353,7 @@
     </div>
   </section>
 
-  <!-- Footer -->
+
   <footer>
     <div class="container">
       <div class="row">
@@ -328,6 +409,30 @@
     document.addEventListener('DOMContentLoaded', function() {
       const cartCount = localStorage.getItem('cartCount') || 0;
       document.querySelector('.cart-count').textContent = cartCount;
+
+   
+      const loginForm = document.getElementById('loginForm');
+      loginForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+        alert('Функция входа пока не реализована');
+        bootstrap.Modal.getInstance(document.getElementById('loginModal')).hide();
+      });
+
+    
+      const registerForm = document.getElementById('registerForm');
+      registerForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+        const password = document.getElementById('registerPassword').value;
+        const confirmPassword = document.getElementById('confirmPassword').value;
+        
+        if (password !== confirmPassword) {
+          alert('Пароли не совпадают');
+          return;
+        }
+        
+        alert('Функция регистрации пока не реализована');
+        bootstrap.Modal.getInstance(document.getElementById('registerModal')).hide();
+      });
     });
   </script>
 </body>
