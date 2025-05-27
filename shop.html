@@ -212,6 +212,18 @@
       height: 2px;
       background-color: var(--primary-color);
     }
+
+    .success-message {
+      text-align: center;
+      padding: 20px;
+    }
+    
+    .user-info {
+      background-color: #f8f9fa;
+      padding: 15px;
+      border-radius: 5px;
+      margin: 15px 0;
+    }
     
     footer {
       background-color: var(--dark-color);
@@ -343,7 +355,6 @@
     </div>
   </header>
 
-  
   <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -352,7 +363,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <form id="loginForm">
+          <div id="loginForm">
             <div class="mb-3">
               <label for="loginEmail" class="form-label">Email</label>
               <input type="email" class="form-control" id="loginEmail" required>
@@ -367,17 +378,16 @@
                 Запомнить меня
               </label>
             </div>
-          </form>
+          </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>
-          <button type="submit" form="loginForm" class="btn btn-primary">Войти</button>
+          <button type="submit" id="loginSubmit" class="btn btn-primary">Войти</button>
         </div>
       </div>
     </div>
   </div>
 
-  
   <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -386,34 +396,49 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <form id="registerForm">
-            <div class="mb-3">
-              <label for="registerName" class="form-label">Имя</label>
-              <input type="text" class="form-control" id="registerName" required>
+          <div id="registerFormContainer">
+            <div id="registerForm">
+              <div class="mb-3">
+                <label for="registerName" class="form-label">Имя</label>
+                <input type="text" class="form-control" id="registerName" required>
+              </div>
+              <div class="mb-3">
+                <label for="registerEmail" class="form-label">Email</label>
+                <input type="email" class="form-control" id="registerEmail" required>
+              </div>
+              <div class="mb-3">
+                <label for="registerPassword" class="form-label">Пароль</label>
+                <input type="password" class="form-control" id="registerPassword" required>
+              </div>
+              <div class="mb-3">
+                <label for="confirmPassword" class="form-label">Подтвердите пароль</label>
+                <input type="password" class="form-control" id="confirmPassword" required>
+              </div>
+              <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="agreeTerms" required>
+                <label class="form-check-label" for="agreeTerms">
+                  Согласен с условиями использования
+                </label>
+              </div>
             </div>
-            <div class="mb-3">
-              <label for="registerEmail" class="form-label">Email</label>
-              <input type="email" class="form-control" id="registerEmail" required>
+            
+            <div id="successMessage" style="display: none;">
+              <div class="success-message">
+                <h4>Регистрация успешна!</h4>
+                <div class="user-info">
+                  <p><strong>Имя:</strong> <span id="displayName"></span></p>
+                  <p><strong>Email:</strong> <span id="displayEmail"></span></p>
+                </div>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                  Закрыть
+                </button>
+              </div>
             </div>
-            <div class="mb-3">
-              <label for="registerPassword" class="form-label">Пароль</label>
-              <input type="password" class="form-control" id="registerPassword" required>
-            </div>
-            <div class="mb-3">
-              <label for="confirmPassword" class="form-label">Подтвердите пароль</label>
-              <input type="password" class="form-control" id="confirmPassword" required>
-            </div>
-            <div class="mb-3 form-check">
-              <input type="checkbox" class="form-check-input" id="agreeTerms" required>
-              <label class="form-check-label" for="agreeTerms">
-                Согласен с условиями использования
-              </label>
-            </div>
-          </form>
+          </div>
         </div>
-        <div class="modal-footer">
+        <div class="modal-footer" id="registerFooter">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>
-          <button type="submit" form="registerForm" class="btn btn-primary">Зарегистрироваться</button>
+          <button type="submit" id="registerSubmit" class="btn btn-primary">Зарегистрироваться</button>
         </div>
       </div>
     </div>
@@ -431,7 +456,6 @@
       <h2 class="section-title">Керамические изделия</h2>
       
       <div class="row">
-        
         <div class="col-lg-4 col-md-6 mb-5">
           <div class="product-card">
             <img src="images/single-image1.jpg" class="product-img" alt="Керамическая ваза">
@@ -443,7 +467,6 @@
           </div>
         </div>
         
-      
         <div class="col-lg-4 col-md-6 mb-5">
           <div class="product-card">
             <img src="images/product-item3.jpg" class="product-img" alt="Керамическая кружка">
@@ -455,7 +478,6 @@
           </div>
         </div>
         
-    
         <div class="col-lg-4 col-md-6 mb-5">
           <div class="product-card">
             <img src="images/product-item4.jpg" class="product-img" alt="Керамическая тарелка">
@@ -467,7 +489,6 @@
           </div>
         </div>
         
-       
         <div class="col-lg-4 col-md-6 mb-5">
           <div class="product-card">
             <img src="images\product-item6.jpg" class="product-img" alt="Керамический кувшин">
@@ -479,7 +500,6 @@
           </div>
         </div>
         
-       
         <div class="col-lg-4 col-md-6 mb-5">
           <div class="product-card">
             <img src="images\post-related-item1.jpg" class="product-img" alt="Керамический чайник">
@@ -491,7 +511,6 @@
           </div>
         </div>
         
-   
         <div class="col-lg-4 col-md-6 mb-5">
           <div class="product-card">
             <img src="images\post-related-item3.jpg" class="product-img" alt="Керамическая салатница">
@@ -503,7 +522,6 @@
           </div>
         </div>
         
-      
         <div class="col-lg-4 col-md-6 mb-5">
           <div class="product-card">
             <img src="images\product-item2.jpg" class="product-img" alt="Керамический набор">
@@ -515,7 +533,6 @@
           </div>
         </div>
         
-     
         <div class="col-lg-4 col-md-6 mb-5">
           <div class="product-card">
             <img src="images\product-item8.jpg" class="product-img" alt="Керамическая маслёнка">
@@ -526,7 +543,6 @@
             </div>
           </div>
         </div>
-        
         
         <div class="col-lg-4 col-md-6 mb-5">
           <div class="product-card">
@@ -595,31 +611,74 @@
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      const cartCount = localStorage.getItem('cartCount') || 0;
+      const cartCount = 0;
       document.querySelector('.cart-count').textContent = cartCount;
 
-      
-      const loginForm = document.getElementById('loginForm');
-      loginForm.addEventListener('submit', function(event) {
+      const loginSubmit = document.getElementById('loginSubmit');
+      loginSubmit.addEventListener('click', function(event) {
         event.preventDefault();
         alert('Функция входа пока не реализована');
         bootstrap.Modal.getInstance(document.getElementById('loginModal')).hide();
       });
 
-      
-      const registerForm = document.getElementById('registerForm');
-      registerForm.addEventListener('submit', function(event) {
+      const registerSubmit = document.getElementById('registerSubmit');
+      registerSubmit.addEventListener('click', function(event) {
         event.preventDefault();
+        
+        const name = document.getElementById('registerName').value.trim();
+        const email = document.getElementById('registerEmail').value.trim();
         const password = document.getElementById('registerPassword').value;
         const confirmPassword = document.getElementById('confirmPassword').value;
+        const agreeTerms = document.getElementById('agreeTerms').checked;
+        
+        if (!name) {
+          alert('Пожалуйста, введите имя');
+          return;
+        }
+        
+        if (!email) {
+          alert('Пожалуйста, введите email');
+          return;
+        }
+        
+        if (!password) {
+          alert('Пожалуйста, введите пароль');
+          return;
+        }
         
         if (password !== confirmPassword) {
           alert('Пароли не совпадают');
           return;
         }
         
-        alert('Функция регистрации пока не реализована');
-        bootstrap.Modal.getInstance(document.getElementById('registerModal')).hide();
+        if (!agreeTerms) {
+          alert('Пожалуйста, согласитесь с условиями использования');
+          return;
+        }
+        
+        showSuccessMessage(name, email);
+      });
+
+      function showSuccessMessage(name, email) {
+        document.getElementById('registerForm').style.display = 'none';
+        document.getElementById('registerFooter').style.display = 'none';
+        
+        document.getElementById('displayName').textContent = name;
+        document.getElementById('displayEmail').textContent = email;
+        
+        document.getElementById('successMessage').style.display = 'block';
+      }
+
+      document.getElementById('registerModal').addEventListener('hidden.bs.modal', function () {
+        document.getElementById('registerName').value = '';
+        document.getElementById('registerEmail').value = '';
+        document.getElementById('registerPassword').value = '';
+        document.getElementById('confirmPassword').value = '';
+        document.getElementById('agreeTerms').checked = false;
+        
+        document.getElementById('successMessage').style.display = 'none';
+        document.getElementById('registerForm').style.display = 'block';
+        document.getElementById('registerFooter').style.display = 'block';
       });
     });
   </script>
