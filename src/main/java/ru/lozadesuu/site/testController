@@ -1,0 +1,23 @@
+package ru.lozadesuu.site.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+import ru.lozadesuu.site.repository.UserRepository;
+
+@RestController
+public class TestController {
+    
+    @Autowired
+    private UserRepository userRepository;
+    
+    @GetMapping("/test-db")
+    public String testDb() {
+        try {
+            long count = userRepository.count();
+            return "Подключение к БД успешно! Количество пользователей: " + count;
+        } catch (Exception e) {
+            return "Ошибка подключения к БД: " + e.getMessage();
+        }
+    }
+}
